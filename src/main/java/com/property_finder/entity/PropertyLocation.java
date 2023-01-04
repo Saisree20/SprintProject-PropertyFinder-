@@ -16,16 +16,17 @@ import javax.persistence.OneToOne;
 public class PropertyLocation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-private long locationId;
+	private long locationId;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="state_id")
-private PropertyState state;
+	private PropertyState state;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="district_id")
-private PropertyDistrict district;
+	private PropertyDistrict district;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="area_id")
-private PropertyArea area;
+	private PropertyArea area;
+	
 	public long getLocationId() {
 		return locationId;
 	}

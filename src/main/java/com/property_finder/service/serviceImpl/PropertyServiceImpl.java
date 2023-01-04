@@ -23,7 +23,7 @@ import com.property_finder.service.PropertyService;
 @Service
 public class PropertyServiceImpl implements PropertyService{
 @Autowired
-	private PropertyRepo propertyRepo;
+private PropertyRepo propertyRepo;
 @Autowired
 private PropertyLocationRepo propertyLocationRepo;
 @Autowired
@@ -32,13 +32,14 @@ private PropertyAreaRepo propertyAreaRepo;
 private PropertyDistrictRepo propertyDistrictRepo;
 @Autowired
 private PropertyStateRepo propertyStateRepo;
-	//ArrayList<Property> ar=new ArrayList<Property>();
+
 	@Override
 	public Property addProperty(Property p) throws NullFieldsException {
 		// TODO Auto-generated method stub
 		//ar.add(p);
 		Property property;
 		if(!p.equals(null)) {
+			
 		this.propertyLocationRepo.save(p.getLocation());
 		property=this.propertyRepo.save(p);
 		}
@@ -46,42 +47,6 @@ private PropertyStateRepo propertyStateRepo;
 			throw new NullFieldsException("All fields must be filled");
 		}
 		
-		//this.propertyLocationRepo.findById(property.getLocation());
-		//------------------------------------------------------------------
-		
-//		PropertyArea propertyArea = this.propertyAreaRepo.findById(property.getLocation().getAreaId()).get();
-//		
-//		PropertyState propertyState = this.propertyStateRepo.findById(property.getLocation().getStateId()).get();
-//		
-//		PropertyDistrict propertyDistrict = this.propertyDistrictRepo.findById(property.getLocation().getDistrictId()).get();
-//		
-//		LocationResponse lr=new LocationResponse();
-//		lr.setLocationId(property.getLocation().getLocationId());
-//		lr.setAreaId(propertyArea);
-//		lr.setDistrictId(propertyDistrict);
-//		lr.setStateId(propertyState);
-//		ResponseClass rc=new ResponseClass();
-//		rc.setAmount(property.getAmount());
-//		rc.setLocation(lr);
-//		rc.setName(property.getName());
-//		rc.setOwnerId(property.getOwnerId());
-//		rc.setPurpose(property.getPurpose());
-//		rc.setType(property.getType());
-//		return rc;
-		//--------------------------------------------------------------------------
-//		this.propertyLocationRepo.save(p.getLocation());
-//		
-//		PropertyArea pa=this.propertyAreaRepo.findById(p.getLocation().getAreaId()).get();
-//		PropertyArea pArea=this.propertyAreaRepo.save(pa);
-//		
-//		PropertyDistrict pd=this.propertyDistrictRepo.getById(p.getLocation().getDistrictId());
-//		PropertyDistrict pDistrict=this.propertyDistrictRepo.save(pd);
-//		
-//		PropertyState ps=this.propertyStateRepo.getById(p.getLocation().getDistrictId());
-//		PropertyState pState=this.propertyStateRepo.save(ps);
-		
-//		PropertyDistrict pd=this.propertyDistrictRepo.getById(p.getLocation().getDistrictId());
-//		PropertyDistrict pDistrict=this.propertyDistrictRepo.save(pd);
 			
 		return property;
 	}
@@ -89,14 +54,8 @@ private PropertyStateRepo propertyStateRepo;
 	@Override
 	public String updateProperty(long id,Property p) throws InvalidUpdationException {
 		// TODO Auto-generated method stub
-//		Property prop=this.propertyRepo.getById(id);
-//		prop.setAmount(p.getAmount());
-//		prop.setName(p.getName());
-//		prop.setOwnerId(p.getOwnerId());
-//		prop.setPurpose(p.getPurpose());
-//		prop.setType(p.getType());
-//		this.propertyRepo.save(prop);
-//		return "Record Updated Successfully";
+		
+		
 		if(propertyRepo.existsById(p.getId())) {
 			propertyRepo.save(p);
 			

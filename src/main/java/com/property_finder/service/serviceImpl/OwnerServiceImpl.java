@@ -26,7 +26,6 @@ public class OwnerServiceImpl implements OwnerService {
 		OwnerEntity oe=new OwnerEntity();
         oe.setOwnerid(Ownerid);
         oe.setOwnername(ownerentity.getOwnername());
-
         this.ownerRepo.save(oe);
         return "update sucessfully";
 	}
@@ -54,10 +53,7 @@ public class OwnerServiceImpl implements OwnerService {
 	@Override
 	public List<Property> checkProperty(PropertyLocation propertyLocation, PropertyPurpose purpose) {
 		// TODO Auto-generated method stub
-		List<Property> allProperty=propertyRepo.findAll();
-		List<Property> p=allProperty.stream().filter((x->x.getLocation().equals(propertyLocation)&&x.getPurpose().equals(purpose))).collect(Collectors.toList());
-
-		        return p;
+	  return propertyRepo.findByLocationAndPurposeAndAmount(propertyLocation, purpose);
 	}
 
 	@Override

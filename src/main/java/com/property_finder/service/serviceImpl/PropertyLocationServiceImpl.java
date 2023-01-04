@@ -24,7 +24,7 @@ public class PropertyLocationServiceImpl implements PropertyLocationService {
 		PropertyLocation pl;
 		
 		if(!p.equals(null)) {
-	 pl=this.plrepo.save(p);
+			pl=this.plrepo.save(p);
 		}
 		else {
 			throw new NullFieldsException("All fields must be filled");
@@ -32,26 +32,26 @@ public class PropertyLocationServiceImpl implements PropertyLocationService {
 		return pl;
 	}
 
-	@Override
-	public String updatePropertyLocation(long id, PropertyLocation p) throws InvalidUpdationException {
-		// TODO Auto-generated method stub
-if(plrepo.existsById(p.getLocationId())) {
-	plrepo.save(p);
+		@Override
+		public String updatePropertyLocation(long id, PropertyLocation p) throws InvalidUpdationException {
+			// TODO Auto-generated method stub
+			if(plrepo.existsById(p.getLocationId())) {
+				plrepo.save(p);
+		
+			}
+			else
+				throw new InvalidUpdationException("Property location not found");
+				
+				return "Record Updated Successfully";
+			}
 	
-}
-else
-	throw new InvalidUpdationException("Property location not found");
-	
-	return "Record Updated Successfully";
-}
-
-	@Override
-	public List<PropertyLocation> getPropertyLocation() {
-		// TODO Auto-generated method stub
-		List<PropertyLocation> p=this.plrepo.findAll();
-		return p;
-		//return null;
-	}
+		@Override
+		public List<PropertyLocation> getPropertyLocation() {
+			// TODO Auto-generated method stub
+			List<PropertyLocation> p=this.plrepo.findAll();
+			return p;
+			
+		}
 
 	@Override
 	public String deletePropertyLocation(long id) throws InvalidDeletionException {
@@ -59,7 +59,7 @@ else
 		// TODO Auto-generated method stub
 		if(plrepo.existsById(id)) {
 		this.plrepo.deleteById(id);
-	str="Record deleted successfully";
+		str="Record deleted successfully";
 		}
 		else {
 			str="Invalid Deletion";

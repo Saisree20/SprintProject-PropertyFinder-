@@ -13,9 +13,10 @@ public class PropertyArea {
 	@Id
 	@Column(name="area_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-private long areaId;
+	private long areaId;
 	@Column(name="area_name")
-private String name;
+	private String name;
+	
 public long getAreaId() {
 	return areaId;
 }

@@ -14,7 +14,6 @@ public interface CustomerService {
     public List<CustomerEntity> viewCustomer();
     public CustomerEntity createCustomer(CustomerEntity customer);
     public String deleteCustomer(long customerid);
-
     public List<Property> checkProperty(PropertyLocation propertyLocation,PropertyPurpose purpose,double budgetAmount);
     public Property getPropertyDetails(long propertyId);
 

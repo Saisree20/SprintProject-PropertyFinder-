@@ -48,10 +48,11 @@ public class CustomerController {
         return "entity deleted"+customerid;
     }
     
-    @RequestMapping("/checkProperty")
+    @PostMapping("/checkProperty")
     public List<Property> checkProperty(@RequestBody PropertyDTO dto)
      {
         // TODO Auto-generated method stub
+    	
         List<Property> allProperty=customerService.checkProperty(dto.getLocation(),dto.getPurpose(),dto.getAmount());
        // List<Property> p=allProperty.stream().filter((x->x.getLocation().equals(dto.getLocation())&&x.getPurpose().equals(dto.getPurpose())&&x.getAmount()==dto.getAmount())).collect(Collectors.toList());
         return allProperty;

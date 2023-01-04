@@ -20,14 +20,13 @@ public class Property {
 private long id;
 private String name;
 private long ownerId;
-
 private PropertyType type;
-
 private PropertyPurpose purpose;
 private double amount;
 
 @OneToOne(cascade = CascadeType.ALL)
 private PropertyLocation location;
+
 public long getId() {
 	return id;
 }

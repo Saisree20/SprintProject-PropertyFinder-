@@ -28,7 +28,6 @@ public class CustomerServiceImpl implements CustomerService{
 		CustomerEntity oe=new CustomerEntity();
 	    oe.setCustomerid(Customerid);
 	    oe.setCustomername(customer.getCustomername());
-
 	    this.customerRepo.save(oe);
 	    return "update successfully";
 	}
@@ -57,10 +56,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public List<Property> checkProperty(PropertyLocation propertyLocation, PropertyPurpose purpose,
 			double budgetAmount) {
 		// TODO Auto-generated method stub
-		List<Property> allProperty=propertyRepo.findAll();
-		List<Property> p=allProperty.stream().filter((x->x.getLocation().equals(propertyLocation)&&x.getPurpose().equals(purpose)&&x.getAmount()==budgetAmount)).collect(Collectors.toList());
-
-		        return p;
+		    return propertyRepo.findByLocationAndPurposeAndAmount(propertyLocation, purpose, budgetAmount);
 	}
 
 	@Override

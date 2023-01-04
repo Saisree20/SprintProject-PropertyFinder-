@@ -8,7 +8,7 @@ import com.property_finder.entity.PropertyLocation;
 import com.property_finder.enums.PropertyPurpose;
 
 public interface OwnerService {
-	 public String updateOwner(long Ownerid,OwnerEntity ownerentity);
+		public String updateOwner(long Ownerid,OwnerEntity ownerentity);
 	    public List<OwnerEntity> viewOwner();
 	    public OwnerEntity createOwner(OwnerEntity owner);
 	    public String deleteOwner(long ownerid);

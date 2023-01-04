@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.property_finder.entity.Login;
+import com.property_finder.entity.LoginResult;
 import com.property_finder.entity.UserLoginEntity;
 import com.property_finder.enums.Role;
 import com.property_finder.exceptions.InvalidCredentialsException;
@@ -29,14 +30,12 @@ public class UserLoginController {
 	    }
 	    
 	    @PostMapping("/validateUserLogin")
-	    public ResponseEntity validateUserLogin(@RequestBody Login login) throws InvalidCredentialsException
-	    {   System.out.println(login);
-	        UserLoginEntity valid=userloginservice.validateUserLoginEntity(login);
-	        if(valid==null)
-
-	        return ResponseEntity.badRequest().body("Incorrect credentials");
-	        return ResponseEntity.ok(valid);
+	    public LoginResult  validateUserLogin(@RequestBody Login login)
+	    {  // System.out.println(login);
+	        LoginResult valid=userloginservice.validateUserLoginEntity(login);
+	        return valid;
 	    }
+
 
 }
 

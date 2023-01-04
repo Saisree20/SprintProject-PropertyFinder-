@@ -7,6 +7,7 @@ public class PropertyDTO {
 	private PropertyLocation location;
 	private PropertyPurpose purpose;
 	private double amount;
+	
 	public PropertyLocation getLocation() {
 		return location;
 	}

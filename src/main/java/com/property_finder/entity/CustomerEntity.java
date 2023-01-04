@@ -9,10 +9,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Customer")
 public class CustomerEntity {
-	 @Id
+     @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
-	 private long customerid;
+	    private long customerid;
 	    private String customername;
+	    
 		public long getCustomerid() {
 			return customerid;
 		}

@@ -51,7 +51,7 @@ public class OwnerController {
         return "entity deleted"+ownerid;
     }
 	
-	 @RequestMapping("/checkProperty")
+	 @PostMapping("/checkProperty")
 	    public List<Property> checkProperty(@RequestBody PropertyOwnerDTO dto)
 	     {
 	        // TODO Auto-generated method stub

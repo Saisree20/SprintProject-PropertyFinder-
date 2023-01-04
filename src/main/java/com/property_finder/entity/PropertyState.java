@@ -14,9 +14,10 @@ public class PropertyState {
 	@Id
 	@Column(name="state_id")
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-private long stateId;
+	private long stateId;
 	@Column(name="state_name")
-private String name;
+	private String name;
+	
 public long getStateId() {
 	return stateId;
 }

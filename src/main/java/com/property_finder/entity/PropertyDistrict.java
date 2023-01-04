@@ -11,9 +11,10 @@ public class PropertyDistrict {
 	@Id
 	@Column(name="district_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-private long districtId;
+	private long districtId;
 	@Column(name="district_name")
-private String name;
+	private String name;
+	
 public long getDistrictId() {
 	return districtId;
 }

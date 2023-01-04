@@ -19,7 +19,7 @@ public class UserLoginEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="userId")
         private long userId;
-        @Column(name="username")
+        @Column(name="username",unique = true)
         private String username;
         @Column(name="password")
         private String password;
@@ -28,7 +28,7 @@ public class UserLoginEntity {
         @Column(name="mobilenumber")
         private long mobilenumber;
 
-                    public UserLoginEntity(long userId,String username, String password, Role role, long mobilenumber) {
+        public UserLoginEntity(long userId,String username, String password, Role role, long mobilenumber) {
             super();
             this.userId=userId;
             this.username = username;

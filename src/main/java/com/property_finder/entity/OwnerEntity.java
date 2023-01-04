@@ -13,6 +13,7 @@ public class OwnerEntity {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long ownerid;
 	private String ownername;
+	
 	public long getOwnerid() {
 		return ownerid;
 	}

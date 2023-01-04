@@ -3,8 +3,10 @@ package com.property_finder.entity;
 import com.property_finder.enums.PropertyPurpose;
 
 public class PropertyOwnerDTO {
+	
 	private PropertyLocation location;
 	private PropertyPurpose purpose;
+	
 	public PropertyLocation getLocation() {
 		return location;
 	}
