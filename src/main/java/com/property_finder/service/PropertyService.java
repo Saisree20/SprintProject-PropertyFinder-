@@ -14,5 +14,5 @@ public Property addProperty(Property p)throws NullFieldsException;
 public String updateProperty(long id,Property p) throws InvalidUpdationException;
 public List<Property> viewPropertyDetails();
 public String deleteProperty(long id)throws InvalidDeletionException; 
-public Property viewPropertyById(long id);
+public Property viewPropertyById(long id)throws PropertyNotFoundException;
 }

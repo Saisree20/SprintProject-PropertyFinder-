@@ -2,7 +2,9 @@ package com.property_finder.service.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+//import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,8 @@ import com.property_finder.response.LocationResponse;
 import com.property_finder.response.ResponseClass;
 import com.property_finder.service.PropertyService;
 
+
+
 @Service
 public class PropertyServiceImpl implements PropertyService{
 @Autowired
@@ -32,12 +36,12 @@ private PropertyAreaRepo propertyAreaRepo;
 private PropertyDistrictRepo propertyDistrictRepo;
 @Autowired
 private PropertyStateRepo propertyStateRepo;
-
+private static final Logger logger = LoggerFactory.getLogger(PropertyServiceImpl.class);
 	@Override
 	public Property addProperty(Property p) throws NullFieldsException {
 		// TODO Auto-generated method stub
-		//ar.add(p);
-		Property property;
+		Property property=null;
+		
 		if(!p.equals(null)) {
 			
 		this.propertyLocationRepo.save(p.getLocation());
@@ -47,6 +51,7 @@ private PropertyStateRepo propertyStateRepo;
 			throw new NullFieldsException("All fields must be filled");
 		}
 		
+		
 			
 		return property;
 	}
@@ -54,16 +59,16 @@ private PropertyStateRepo propertyStateRepo;
 	@Override
 	public String updateProperty(long id,Property p) throws InvalidUpdationException {
 		// TODO Auto-generated method stub
-		
-		
+		String str="";
 		if(propertyRepo.existsById(p.getId())) {
 			propertyRepo.save(p);
-			
+			str="Record Updated Successfully";
 		}
-		else
+		else {
+			str="Invalid id";
 			throw new InvalidUpdationException("Property not found");
-			
-			return "Record Updated Successfully";
+		}
+			return str;
 	}
 
 	@Override
@@ -89,9 +94,14 @@ private PropertyStateRepo propertyStateRepo;
 	}
 
 	@Override
-	public Property viewPropertyById(long id) {
+	public Property viewPropertyById(long id) throws PropertyNotFoundException{
 		// TODO Auto-generated method stub
-		Property property=propertyRepo.findById(id).get();
+		Property property=null;
+		if(propertyRepo.existsById(id)) {
+		property=propertyRepo.findById(id).get();
+		}
+		else
+			throw new PropertyNotFoundException("Invalid Deletion");
 		return property;
 	}
 

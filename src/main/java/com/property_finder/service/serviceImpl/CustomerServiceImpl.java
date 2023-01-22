@@ -25,6 +25,7 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public String updateCustomer(long Customerid, CustomerEntity customer) {
 		// TODO Auto-generated method stub
+		
 		CustomerEntity oe=new CustomerEntity();
 	    oe.setCustomerid(Customerid);
 	    oe.setCustomername(customer.getCustomername());

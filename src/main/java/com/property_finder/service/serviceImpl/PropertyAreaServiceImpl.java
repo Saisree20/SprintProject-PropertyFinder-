@@ -30,18 +30,24 @@ public class PropertyAreaServiceImpl implements PropertyAreaService{
 		else {
 			throw new NullFieldsException("All fields must be entered");
 		}
+		
+		
 		return pa;
 	}
 
 	@Override
 	public String updatePropertyArea(long id, PropertyArea p) throws InvalidUpdationException {
 		// TODO Auto-generated method stub
+		try {
 		if(parepo.existsById(p.getAreaId())) {
 			parepo.save(p);
 			
 		}
 		else
 			throw new InvalidUpdationException("Property Area not found");
+		}catch(InvalidUpdationException e) {
+			return e.getMessage();
+		}
 			
 			return "Record Updated Successfully";
 	}

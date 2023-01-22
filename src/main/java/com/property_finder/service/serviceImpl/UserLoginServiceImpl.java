@@ -33,7 +33,7 @@ public class UserLoginServiceImpl implements UserLoginService {
         // TODO Auto-generated method stub
 		LoginResult result=new LoginResult();
 	
-		Optional<UserLoginEntity> userLoginEntityOptional=repo.findByUsernameAndPassword(login.getUsername(),login.getPassword());
+		Optional<UserLoginEntity> userLoginEntityOptional=repo.findByUsernameAndPassword(login.getUsername()  ,login.getPassword());
 		if(userLoginEntityOptional.isPresent()) {
 			result.setLoginMessage("Login Successful");
 			result.setRole(userLoginEntityOptional.get().getRole());

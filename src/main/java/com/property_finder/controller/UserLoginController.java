@@ -2,6 +2,7 @@ package com.property_finder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import com.property_finder.enums.Role;
 import com.property_finder.exceptions.InvalidCredentialsException;
 import com.property_finder.repo.UserLoginRepo;
 import com.property_finder.service.UserLoginService;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/userlogin")
 public class UserLoginController {

@@ -3,6 +3,7 @@ package com.property_finder.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import com.property_finder.exceptions.NullFieldsException;
 import com.property_finder.exceptions.PropertyNotFoundException;
 import com.property_finder.service.PropertyAreaService;
 import com.property_finder.service.PropertyDistrictService;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/propertyDistrict")
 public class PropertyDistrictController {

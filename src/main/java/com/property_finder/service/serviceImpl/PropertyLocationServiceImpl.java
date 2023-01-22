@@ -57,6 +57,7 @@ public class PropertyLocationServiceImpl implements PropertyLocationService {
 	public String deletePropertyLocation(long id) throws InvalidDeletionException {
 		String str="";
 		// TODO Auto-generated method stub
+		try {
 		if(plrepo.existsById(id)) {
 		this.plrepo.deleteById(id);
 		str="Record deleted successfully";
@@ -64,6 +65,11 @@ public class PropertyLocationServiceImpl implements PropertyLocationService {
 		else {
 			str="Invalid Deletion";
 			throw new InvalidDeletionException("The Entered id is not present in the record");
+		}
+		
+		}
+		catch(InvalidDeletionException e) {
+			return e.getMessage();
 		}
 			return str;
 	}
